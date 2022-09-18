@@ -24,38 +24,49 @@
 
         //Klargjør variabler for utregning
         const startingPoint = 255
-        const checksum = 0
+        var checksum = 0
+        //5 endret fra const til var, da verdien "checksum" skal endres senere i koden
         const multiplier = 3
         //Ditt navn. PS: Bytt denne til ditt navn.
-        //Endret over til kommentar
+        //7 Endret linje 30 til kommentar med "//" istedenfor "/"
         //Selve navnebyttet er ikke en feil som teller mot de 10 feilene du skal finne.
-        const myName = Simon;
+        const myName = "Simon";
+        //6 verdien til myName sto fritt, lagt verdien i ""
 
         //Klargjør variabel for bygging av tekst
-        lett greeting = "";
+        let greeting = "";
+        //3 skrivefeil, "lett" endret til "let"
         const saluteClass = "pyro";
 
         //Kontroller datatype
-        if(typeof myName === "string") {
-            checksummm = startingPoint * multiplier
+        if(typeof myName === "Simon") {
+            //lagt inn myName som Simon
+            checksum = startingPoint * multiplier
+            //1 skrivefeil på checksum, endret til checksum fra checksummm
         } else {
             checksum = startingPoint
         }
 
         //Kontroller checksum
-        if(checksum !=== 765) {
+        if(checksum === 765) {
+            //4 !=== er ikke gyldig, endret til ===	equal value and equal type, kilde: https://www.w3schools.com/js/js_comparisons.asp
             greeting = "beklager"
         } else {
             greeting = "gratulerer"
-            const output = greeeting + ", " + myName + "<br />Du klarte det!"
+            const output = greeting + ", " + myName + "Du klarte det!"
+            //8 endret skrivefeil "greeeting" til "greeting"
+            //2 <br /> sto uten <br>, fjernet <br /> fra "Du klarte det!"
             const textElement = document.getElementById("TEXT");
-            const saluteElement = document.getElementByID("salute")
+            const saluteElement = document.getElementById("salute")
+            //9 endret "getElementByID" til "getElementById" med lowercase "d" på slutten
             textElement.removeAttribute("class")
             textElement.innerHTML = output
             saluteElement.setAttribute("class",saluteclass)
             document.body.setAttribute("class","success")
         }
-
+        console.log(myName)
+        console.log(checksum)
+        console.log(greeting)
         /*
          * IKKE ENDRE NOE ETTER DENNE KOMMENTAREN
          */
