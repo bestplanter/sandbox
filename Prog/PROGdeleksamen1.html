@@ -24,8 +24,8 @@
 
         //Klargjør variabler for utregning
         const startingPoint = 255
-        var checksum = 0
-        //5 endret fra const til var, da verdien "checksum" skal endres senere i koden
+        let checksum = 0
+        //5 endret fra const til let, da verdien "checksum" skal endres senere i koden. kilde: https://lms.webtricks.blog/kurs/innforing-i-programmering/variabler/datatyper#h265161c01122
         const multiplier = 3
         //Ditt navn. PS: Bytt denne til ditt navn.
         //7 Endret linje 30 til kommentar med "//" istedenfor "/"
@@ -53,20 +53,19 @@
             greeting = "beklager"
         } else {
             greeting = "gratulerer"
-            const output = greeting + ", " + myName + "Du klarte det!"
+            const output = greeting + ", " + myName + "<br> Du klarte det! <br/>" 
             //8 endret skrivefeil "greeeting" til "greeting"
-            //2 <br /> sto uten <br>, fjernet <br /> fra "Du klarte det!"
-            const textElement = document.getElementById("TEXT");
+            //2 lagt til <br> i "Du klarte det!", da <br/> sto uten en start
+            const textElement = document.getElementById("text");
+            //10 endret fra "TEXT" til "text"
             const saluteElement = document.getElementById("salute")
             //9 endret "getElementByID" til "getElementById" med lowercase "d" på slutten
             textElement.removeAttribute("class")
             textElement.innerHTML = output
-            saluteElement.setAttribute("class",saluteclass)
+            saluteElement.setAttribute("class",saluteClass)
+            //11 endret "saluteclass" til "saluteClass" med uppercase C
             document.body.setAttribute("class","success")
         }
-        console.log(myName)
-        console.log(checksum)
-        console.log(greeting)
         /*
          * IKKE ENDRE NOE ETTER DENNE KOMMENTAREN
          */
