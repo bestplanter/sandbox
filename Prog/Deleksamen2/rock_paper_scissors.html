@@ -267,7 +267,11 @@
 
             winnerDiv.innerHTML = "The winner is " + winner
             /* OPPGAVE 2.2: FORKLAR HVA SOM SKJER PÅ LINJE 254
-             * _ditt svar her_ 
+             * først oppgis element "winnerDiv"
+             * deretter bruker vi "innerHTML" for å hente innholdet av "winnerDiv" (kilde: https://www.w3schools.com/jsref/prop_html_innerhtml.asp)
+             * her sier vi at "innerHTML" (som er innholdet i "winnerDiv") skal være "The winner is " + winner 
+             * Dette gjør vi for å framvise vinneren av stein saks papir matchen, etter at den er gjennomført i koden
+             * Sluttproduktet er at vinneren framvises etter hver match, med en sammensatt settning som blir "the winner is ("winner" element)"
              */
 
             //Now, lastly, let's update the counter on how many games we have played:
