@@ -128,7 +128,7 @@
         <div id="playerSigns">
             <h2 id="instruction">Play your hand:<span id="choice"></span></h2>
             <button type="button" onClick="play('rock')" id="rockButton" class="playerChoice"><img src="rock.jpg" alt="Rock" /></button>
-            <!-- endret feilstaving "playy" til "play"-->
+            <!--feil1: endret feilstaving "playy" til "play"-->
             <button type="button" onClick="play('paper')" id="paperButton" class="playerChoice"><img src="paper.jpg" alt="Paper" /></button>
             <button type="button" onClick="play('scissors')" id="scissorsButton" class="playerChoice"><img src="scissors.jpg" alt="Scissors" /></button>
         </div>
@@ -163,7 +163,8 @@
          * On mouseover, show the alt-text of the image inside the button and add animation class
          * On mouseout, remove the text and class
          */
-        buttonss.forEach(button => {
+        buttons.forEach(button => {
+        //feil3: endret skrivefeil "buttonss" til "buttons"
             button.addEventListener("mouseover", (event) => {
                 document.getElementById("choice").innerHTML = button.childNodes[0].alt
                 document.getElementById("choice").setAttribute("class","choiceAnimate")
@@ -289,7 +290,7 @@
 
         //Function for random numnber, fetched from MDN web docs:
         function getRandomInt(max) {
-        //korrigert en skrivefeil fra "unction" til "function"
+        //feil2: korrigert en skrivefeil fra "unction" til "function"
             return Math.floor(Math.random() * max);
         }
     </script>
