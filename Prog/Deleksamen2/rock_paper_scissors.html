@@ -210,7 +210,13 @@
             
             computer.style.display = "block"
             /* OPPGAVE 2.1: FORKLAR HVA SOM SKJER PÅ LINJE 208
-             * _ditt svar her_ 
+             * "computer" er element-navnet til datamaskinen/boten som man spiller mot.
+             * Deretter går vi inn i "style" biten av "computer".
+             * Deretter går vi inn i "display" biten av "style.computer".
+             * Her sier vi at "display" (fra "computer.style.display") skal være "block" elementet.
+             * Da framvises (display) hva boten (computer) har "valgt"
+             * Sluttnotat: "computer.style.display" står ikke i css delen av dette dokumentet, 
+             * Dette er fordi vi ikke vil at computer ikke skal bli framvist (display) før dette punktet i koden. Hadde det vært definert i CSS, ville "computer" boksen vært tilstedeværende fra start.
              */
 
             computer.innerHTML = "Computer selects " + computerSign
@@ -251,9 +257,9 @@
             }
             document.body.style.backgroundColor = winner === "player" ? "#FFD700" : "yellow";
             /*Oppgave 3: 
-            lagt til "#FFD700" under body.style.backgroungColor hvis vinner er "player", hvis ikke endres bakgrunnen tilbake til "yellow". 
-            Forkortet kode kilde: https://stackoverflow.com/questions/24265123/shorthand-if-else-if-and-else-statement
-            */
+             *lagt til "#FFD700" under body.style.backgroungColor hvis vinner er "player", hvis ikke endres bakgrunnen tilbake til "yellow". 
+             *Forkortet kode kilde: https://stackoverflow.com/questions/24265123/shorthand-if-else-if-and-else-statement
+             */
             //Now we have checks to set the winner. Let's write it to the website.
             //Now you know the drill: show #winner by display: block and fill it with HTML:
             const winnerDiv = document.getElementById("winner")
@@ -266,6 +272,12 @@
 
             //Now, lastly, let's update the counter on how many games we have played:
             counter = counter + 1
+            document.getElementById("counter").style.color = counter >= 1 ? "red" : "black"
+            /*oppgave 4: ut fra document henter jeg element etter Id "counter", videre style og color, og kaller dette for "counter"
+             *hvis (forkortet med "?", kan også være "if") "counter" er ">=" (lik eller større enn, kilde: https://www.w3schools.com/js/js_comparisons.asp) 1, så farge rød, 
+             *hvis ikke (forkortet med ":", kan også være "else"), så farge svart. 
+             *Forkortet kode kilde: https://stackoverflow.com/questions/24265123/shorthand-if-else-if-and-else-statement
+             */
 
             document.getElementById("counter").innerHTML = counter
             /* OPPGAVE 2.3: FORKLAR HVA SOM SKJER PÅ LINJE 262
