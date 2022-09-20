@@ -205,7 +205,8 @@
             //Lets write the computer selection to the console to make sure we have a valid hit:
             console.log("Computer selected: " + computerSign)
             // Good! Now we also have to show this on the website, by making #computer visible and filling it with HTML:
-            const computer = document.getElementByID("computer")
+            const computer = document.getElementById("computer")
+            //feil4: endret skrivefeil "getElementByID" til "getElementById" med lowercase "d" på slutten
             
             computer.style.display = "block"
             /* OPPGAVE 2.1: FORKLAR HVA SOM SKJER PÅ LINJE 208
@@ -248,6 +249,11 @@
                     winner = "player"
                 }
             }
+            document.body.style.backgroundColor = winner === "player" ? "#FFD700" : "yellow";
+            /*Oppgave 3: 
+            lagt til "#FFD700" under body.style.backgroungColor hvis vinner er "player", hvis ikke endres bakgrunnen tilbake til "yellow". 
+            Forkortet kode kilde: https://stackoverflow.com/questions/24265123/shorthand-if-else-if-and-else-statement
+            */
             //Now we have checks to set the winner. Let's write it to the website.
             //Now you know the drill: show #winner by display: block and fill it with HTML:
             const winnerDiv = document.getElementById("winner")
