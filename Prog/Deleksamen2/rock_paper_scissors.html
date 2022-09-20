@@ -258,14 +258,23 @@
             document.body.style.backgroundColor = winner === "player" ? "#FFD700" : "yellow";
             /*Oppgave 3: 
              *lagt til "#FFD700" under body.style.backgroungColor hvis vinner er "player", hvis ikke endres bakgrunnen tilbake til "yellow". 
-             *Forkortet kode kilde: https://stackoverflow.com/questions/24265123/shorthand-if-else-if-and-else-statement
+             *Forkortet kode kilde: https://www.w3schools.com/java/java_conditions_shorthand.asp
              */
             //Now we have checks to set the winner. Let's write it to the website.
             //Now you know the drill: show #winner by display: block and fill it with HTML:
             const winnerDiv = document.getElementById("winner")
             winnerDiv.style.display = "block"
 
-            winnerDiv.innerHTML = "The winner is " + winner
+            winnerDiv.innerHTML = winner === "player" ? "You win" : winner === "computer" ? "You lose" : "It's a tie";
+            /*Oppgave 5: 
+             *Her spør jeg om (if) "winner" ===(equal value and equal type) "player", hvis korrekt, input "You win"
+             Hvis ukorrekt (else), spør jeg om "winner" ===(equal value and equal type) "computer", hvis korrekt, input "You lose"
+             Hvis ukorrekt (else), har verken player eller computer vunnet, derfor input "It's a tie"
+             *equal value and equal type kilde: https://www.w3schools.com/js/js_comparisons.asp
+             *Forkortet kode kilde: https://www.w3schools.com/java/java_conditions_shorthand.asp
+             */
+
+            //winnerDiv.innerHTML = "The winner is " + winner
             /* OPPGAVE 2.2: FORKLAR HVA SOM SKJER PÅ LINJE 254
              * først oppgis element "winnerDiv"
              * deretter bruker vi "innerHTML" for å hente innholdet av "winnerDiv" (kilde: https://www.w3schools.com/jsref/prop_html_innerhtml.asp)
@@ -280,7 +289,7 @@
             /*oppgave 4: ut fra document henter jeg element etter Id "counter", videre style og color, og kaller dette for "counter"
              *hvis (forkortet med "?", kan også være "if") "counter" er ">=" (lik eller større enn, kilde: https://www.w3schools.com/js/js_comparisons.asp) 1, så farge rød, 
              *hvis ikke (forkortet med ":", kan også være "else"), så farge svart. 
-             *Forkortet kode kilde: https://stackoverflow.com/questions/24265123/shorthand-if-else-if-and-else-statement
+             *Forkortet kode kilde: https://www.w3schools.com/java/java_conditions_shorthand.asp
              */
 
             document.getElementById("counter").innerHTML = counter
@@ -316,7 +325,15 @@
         //Function for random numnber, fetched from MDN web docs:
         function getRandomInt(max) {
         //feil2: korrigert en skrivefeil fra "unction" til "function"
-            return Math.floor(Math.random() * max);
+        
+            return Math.floor(Math.random() * (max+1));
+            /*feil5: endret "max" til "(max+1)" for å inkludere siste del i array. (kilde: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
+             *Math.random returner maksimalt 0,999
+             *0,999 × 2 = 1,999
+             *Og floor på 1.999 er 1,
+             *Så jeg øker max med 1 for å få: 0,999 × (2+1) = 2,999
+             *dette tilsier at 0-0,999 vil returnere element 0 i array.(alle array starter på 0) 1,0-1,999 returnerer element 1 i array. 2,0-2,999 returnerer element 2 i array.
+            */
         }
     </script>
 </body>
