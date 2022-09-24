@@ -33,7 +33,7 @@ header nav ul li{
 
 header{
     grid-area: header;
-    background-color: #343A40;
+    background-color: #6C757D;
 }
 
 header nav{
@@ -53,6 +53,11 @@ footer{
     width: 100%;
 }
 /* kilde for å få footer til å bli på bunnen av dokumentet: https://www.geeksforgeeks.org/how-to-create-footer-to-stay-at-the-bottom-of-a-web-page/ */
+
+button{
+    background-color: #CED4DA;
+    color: black;
+}
 
 a:link{
     color: red;
