@@ -54,6 +54,13 @@ article{
     border-color: #212529;
 }
 
+article img{
+    float: left;
+    margin-right: 1rem;
+    border: 1px solid #Dee2e6;
+    border-radius: 3px;
+}
+
 main article{
     max-width: 0,33fr;
     width: 33%;
@@ -67,7 +74,7 @@ main article{
 }
 /*Kilde overflow: https://www.w3schools.com/css/css_overflow.asp*/
 
-aside{
+aside article{
     margin: 1rem;
     border: 3px solid;
     padding: 1rem;
