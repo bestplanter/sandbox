@@ -1,3 +1,5 @@
+/*color palette: https://coolors.co/palette/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529*/
+
 *{
     box-sizing: border-box;
 }
@@ -8,17 +10,16 @@ body{
     background-color: #fff; 
 }
 
-#front-page{
+body div{
     display: grid;
     grid-template-areas: "header header header" 
                         "main main aside"
                         "footer footer footer";
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
 }
 
 header h1{
     float: left;
-    height: 50px;
 }
  
 header nav ul{
@@ -45,6 +46,19 @@ main{
     grid-area: main;
 }
 
+main h2{
+    float: inline-end;
+}
+
+article{
+    max-width: 0,33fr;
+    width: 33%;
+    float: left;
+    border: 2px solid #212529;
+    padding: 1rem;
+    margin: 1rem;
+}
+
 footer{
     grid-area: footer;
     background-color: #6C757D;
@@ -52,22 +66,43 @@ footer{
     bottom: 0;
     width: 100%;
 }
-/* kilde for å få footer til å bli på bunnen av dokumentet: https://www.geeksforgeeks.org/how-to-create-footer-to-stay-at-the-bottom-of-a-web-page/ */
+/*kilde for å få footer til å bli på bunnen av dokumentet: https://www.geeksforgeeks.org/how-to-create-footer-to-stay-at-the-bottom-of-a-web-page/ */
+
+/*underneath are all affixes for various elements*/
+.resizeLogo{
+    width: 450px;
+    height: auto;
+}
+
+.resizeArticle{
+    width: auto;
+    height: 300px;
+}
 
 button{
     background-color: #CED4DA;
     color: black;
+    border: #212529, 1px;
 }
 
-a:link{
-    color: red;
+img{
+    max-width: 100%;
+    max-height: auto;
+}
+/*kilde for å tilpasse bilder til div størrelser: https://stackoverflow.com/questions/4394309/how-do-i-fit-an-image-img-inside-a-div-and-keep-the-aspect-ratio*/
+
+#menuButton{
+    width: 100px;
+    height: 50px;
 }
 
-a:hover{
-    color: #DEE2E6;
+#menuButton:hover{
+    background-color: #ADB5BD;
+}
+/*kilde for å få farge med ""element":hover": https://www.w3schools.com/css/css_link.asp*/
+
+.buttonReadMore{
+    background-color: #CED4DA;
+    color: black;
 }
 
-a:active{
-    color: #ADB5DB;
-}
-/* kilde for a:link etc https://www.w3schools.com/css/css_link.asp*/
