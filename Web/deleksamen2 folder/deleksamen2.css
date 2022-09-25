@@ -74,6 +74,11 @@ main article{
 }
 /*Kilde overflow: https://www.w3schools.com/css/css_overflow.asp*/
 
+aside{
+    position: sticky;
+}
+/*kilde position: https://www.w3schools.com/css/css_positioning.asp*/
+
 aside article{
     margin: 1rem;
     border: 3px solid;
@@ -95,7 +100,7 @@ footer{
     bottom: 0;
     width: 100%;
 }
-/*kilde for å få footer til å bli på bunnen av dokumentet: https://www.geeksforgeeks.org/how-to-create-footer-to-stay-at-the-bottom-of-a-web-page/ */
+/*kilde for å få footer til å bli på bunnen av nettsiden: https://www.geeksforgeeks.org/how-to-create-footer-to-stay-at-the-bottom-of-a-web-page/ */
 
 /*underneath are all affixes for various elements*/
 .resizeArticleImg{
@@ -138,3 +143,33 @@ img{
     background-color: #E9ECEF;
     color: black;
 }
+
+
+@media screen and (max-width: 992px) {
+    body{
+      
+    }
+
+    header{
+
+    }
+
+    header nav{
+        float: left;
+    }
+
+    article{
+
+    }
+
+    aside{
+
+    }
+
+    footer{
+        position:static;
+    }
+  }
+/*kilde mediaqueries: https://www.w3schools.com/Css/css3_mediaqueries_ex.asp.
+  mediaqueries brukes for wireframes mobil
+*/
