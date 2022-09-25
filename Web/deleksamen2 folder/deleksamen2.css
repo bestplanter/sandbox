@@ -7,7 +7,7 @@
 body{
     margin: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #fff; 
+    background-color: #Dee2e6; 
 }
 
 body div{
@@ -20,15 +20,18 @@ body div{
 
 header h1{
     float: left;
+    width: 400px;
+    height: auto;
 }
  
 header nav ul{
     float: right;
+
 }
 
 header nav ul li{
     display: inline-block;
-    margin: 1rem;
+    margin: 0;
     text-decoration: none;
 }
 
@@ -37,10 +40,6 @@ header{
     background-color: #6C757D;
 }
 
-header nav{
-    float: right;
-    grid-area: header;
-}
 
 main{
     grid-area: main;
@@ -51,13 +50,31 @@ main h2{
 }
 
 article{
+    background-color: #E9ECEF;
+    border-color: #212529;
+}
+
+main article{
     max-width: 0,33fr;
     width: 33%;
+    height: 400px;
     float: left;
-    border: 2px solid #212529;
+    border: 2px solid;
     padding: 1rem;
     margin: 1rem;
+    overflow: auto;
+    border-radius: 5px;
 }
+/*Kilde overflow: https://www.w3schools.com/css/css_overflow.asp*/
+
+aside{
+    margin: 1rem;
+    border: 3px solid;
+    padding: 1rem;
+    background-color: #E9ECEF;
+    border-radius: 5px;
+}
+/*Kilde rounded borders: https://www.w3schools.com/css/css_border_rounded.asp*/
 
 footer{
     grid-area: footer;
@@ -69,12 +86,7 @@ footer{
 /*kilde for å få footer til å bli på bunnen av dokumentet: https://www.geeksforgeeks.org/how-to-create-footer-to-stay-at-the-bottom-of-a-web-page/ */
 
 /*underneath are all affixes for various elements*/
-.resizeLogo{
-    width: 450px;
-    height: auto;
-}
-
-.resizeArticle{
+.resizeArticleImg{
     width: auto;
     height: 300px;
 }
@@ -85,24 +97,31 @@ button{
     border: #212529, 1px;
 }
 
+button:hover{
+    background-color: #ADB5BD;
+}
+/*kilde for å få farge med ""element":hover": https://www.w3schools.com/css/css_link.asp*/
+
 img{
     max-width: 100%;
     max-height: auto;
 }
 /*kilde for å tilpasse bilder til div størrelser: https://stackoverflow.com/questions/4394309/how-do-i-fit-an-image-img-inside-a-div-and-keep-the-aspect-ratio*/
 
+#readMore{
+    width: 100%;
+}
+
 #menuButton{
-    width: 100px;
-    height: 50px;
+    border: none;
+    background-color: #6C757D;
+    color: #f8f9fa;
+    width: auto;
+    height: 60px;
+    font-size: large;
 }
 
 #menuButton:hover{
-    background-color: #ADB5BD;
-}
-/*kilde for å få farge med ""element":hover": https://www.w3schools.com/css/css_link.asp*/
-
-.buttonReadMore{
-    background-color: #CED4DA;
+    background-color: #E9ECEF;
     color: black;
 }
-
