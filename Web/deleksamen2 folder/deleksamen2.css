@@ -154,24 +154,24 @@ img{
 }
 
 @media screen and (max-width: 992px) {
-    body{
-      
-    }
-
-    header{
-
-    }
-
     header nav{
-        
+        float: left;
     }
 
-    article{
-
+    main article{
+        max-width: 1fr;
+        width: 100%;
+        height: auto;
+        float: left;
+        border: 2px solid;
+        padding: 1rem;
+        margin: 1rem;
+        overflow: auto;
+        border-radius: 5px;
     }
 
     aside{
-
+        margin-left: 1rem;
     }
 
     footer{
