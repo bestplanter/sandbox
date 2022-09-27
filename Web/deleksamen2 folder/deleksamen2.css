@@ -24,15 +24,24 @@ header h1{
     height: auto;
 }
  
-header nav ul{
+header nav{
     float: right;
-
+    max-height: 100px;
+    margin-right: 4px;
 }
 
+header nav span img{
+    max-height: 85px;
+}
+
+header nav ul{
+    margin: 1rem;
+}
+
+
 header nav ul li{
-    display: inline-block;
-    margin: 0;
-    text-decoration: none;
+    display: block;
+    float: left;
 }
 
 header{
@@ -144,7 +153,6 @@ img{
     color: black;
 }
 
-
 @media screen and (max-width: 992px) {
     body{
       
@@ -155,7 +163,7 @@ img{
     }
 
     header nav{
-        float: left;
+        
     }
 
     article{
