@@ -70,17 +70,13 @@ main{
 
 main h2{
     width: 100%;
+    text-align: center;
 }
-
-article img{
-    float: left;
-    margin-right: 1rem;
-    border: 1px solid #Dee2e6;
-    border-radius: 3px;
-}
+/*kilde text-align: https://www.w3schools.com/css/css_align.asp*/
 
 main article{
     height: 400px;
+    width: 700px;
     border: 2px solid;
     padding: 1rem;
     margin: 1rem;
@@ -88,6 +84,24 @@ main article{
     border-radius: 5px;
 }
 /*Kilde overflow: https://www.w3schools.com/css/css_overflow.asp*/
+
+main article h3{
+    text-align: center;
+    border-bottom: 1px solid #212529;
+}
+
+main article img{
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #Dee2e6;
+    border-radius: 3px;
+}
+
+.resizeArticleImg{
+    width: auto;
+    height: 300px;
+}
 
 aside{
     position: sticky;
@@ -103,6 +117,11 @@ aside article{
     border-radius: 5px;
 }
 /*Kilde rounded borders: https://www.w3schools.com/css/css_border_rounded.asp*/
+
+aside article h3{
+    text-align: center;
+    border-bottom: 1px solid #212529;
+}
 
 aside article img{
     border: none;
@@ -125,11 +144,6 @@ article{
     border-color: #212529;
 }
 
-.resizeArticleImg{
-    width: auto;
-    height: 300px;
-}
-
 button{
     background-color: #CED4DA;
     color: black;
@@ -140,11 +154,12 @@ button{
 button:hover{
     background-color: #ADB5BD;
 }
-
-#readMore{
-    width: 100%;
-}
 /*kilde for å få farge med bruk av ""element":hover": https://www.w3schools.com/css/css_link.asp*/
+
+#wideStandard{
+    width: 100%;
+    border-color: #E9ECEF;
+}
 
 img{
     max-width: 100%;
@@ -159,15 +174,9 @@ img{
     }
 
     main article{
-        max-width: 1fr;
         width: 100%;
         height: auto;
-        float: left;
-        border: 2px solid;
-        padding: 1rem;
-        margin: 1rem;
-        overflow: auto;
-        border-radius: 5px;
+        overflow: hidden;
     }
 
     footer{
