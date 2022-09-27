@@ -18,6 +18,11 @@ body div{
     grid-template-columns: 1fr 3fr 1fr;
 }
 
+header{
+    grid-area: header;
+    background-color: #6C757D;
+}
+
 header h1{
     float: left;
     width: 400px;
@@ -30,10 +35,6 @@ header nav{
     margin-right: 4px;
 }
 
-header nav span img{
-    max-height: 85px;
-}
-
 header nav ul{
     margin: 1rem;
 }
@@ -44,23 +45,31 @@ header nav ul li{
     float: left;
 }
 
-header{
-    grid-area: header;
+#menuButton{
+    border: none;
     background-color: #6C757D;
+    color: #f8f9fa;
+    width: auto;
+    height: 60px;
+    font-size: large;
 }
 
+#menuButton:hover{
+    background-color: #E9ECEF;
+    color: black;
+}
 
 main{
     grid-area: main;
 }
 
-main h2{
-    float: inline-end;
+.flexContainer{
+    display: flex;
+    flex-flow: row wrap;
 }
 
-article{
-    background-color: #E9ECEF;
-    border-color: #212529;
+main h2{
+    width: 100%;
 }
 
 article img{
@@ -71,10 +80,7 @@ article img{
 }
 
 main article{
-    max-width: 0,33fr;
-    width: 33%;
     height: 400px;
-    float: left;
     border: 2px solid;
     padding: 1rem;
     margin: 1rem;
@@ -85,6 +91,7 @@ main article{
 
 aside{
     position: sticky;
+    margin-left: 1rem;
 }
 /*kilde position: https://www.w3schools.com/css/css_positioning.asp*/
 
@@ -111,7 +118,13 @@ footer{
 }
 /*kilde for å få footer til å bli på bunnen av nettsiden: https://www.geeksforgeeks.org/how-to-create-footer-to-stay-at-the-bottom-of-a-web-page/ */
 
-/*underneath are all affixes for various elements*/
+/*Setter alle felles selector elementer under. 
+  Dette fordi disse kunne vært semantisk plassert under flere forskjellige områder i CSS koden over.*/
+article{
+    background-color: #E9ECEF;
+    border-color: #212529;
+}
+
 .resizeArticleImg{
     width: auto;
     height: 300px;
@@ -127,7 +140,11 @@ button{
 button:hover{
     background-color: #ADB5BD;
 }
-/*kilde for å få farge med ""element":hover": https://www.w3schools.com/css/css_link.asp*/
+
+#readMore{
+    width: 100%;
+}
+/*kilde for å få farge med bruk av ""element":hover": https://www.w3schools.com/css/css_link.asp*/
 
 img{
     max-width: 100%;
@@ -135,23 +152,6 @@ img{
 }
 /*kilde for å tilpasse bilder til div størrelser: https://stackoverflow.com/questions/4394309/how-do-i-fit-an-image-img-inside-a-div-and-keep-the-aspect-ratio*/
 
-#readMore{
-    width: 100%;
-}
-
-#menuButton{
-    border: none;
-    background-color: #6C757D;
-    color: #f8f9fa;
-    width: auto;
-    height: 60px;
-    font-size: large;
-}
-
-#menuButton:hover{
-    background-color: #E9ECEF;
-    color: black;
-}
 
 @media screen and (max-width: 992px) {
     header nav{
@@ -170,14 +170,9 @@ img{
         border-radius: 5px;
     }
 
-    aside{
-        margin-left: 1rem;
-    }
-
     footer{
         position:static;
     }
   }
 /*kilde mediaqueries: https://www.w3schools.com/Css/css3_mediaqueries_ex.asp.
-  mediaqueries brukes for wireframes mobil
-*/
+  mediaqueries brukes for wireframes mobil*/
