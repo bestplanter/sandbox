@@ -37,12 +37,14 @@ header span {
 }
 
 section {
-    width: 960px; /* 32px * 30ruter */
-    height: 640px; /* 32px * 20 ruter */
+    width: 960px; /* 64px * 15 ruter */
+    height: 640px; /* 64px * 10 ruter */
     /* endret "section" til å reflektere størrelsen av spilleområdet. (940x640)
        Dette fikset samtidig en feil med at "GAME OVER!" teksten ikke reflekterte spilleområdet.
        Dette fikset også en feil med at spilleområdet ble feilplassert, fordi section var ikke samme størrelse.*/
 }
+
+
 
 aside {
     background: #000;
@@ -51,3 +53,22 @@ aside {
     top: 1rem;
     right: 1rem;
 }
+
+button {
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+/* Kilde style og hover av button: https://www.w3schools.com/tags/tag_button.asp*/

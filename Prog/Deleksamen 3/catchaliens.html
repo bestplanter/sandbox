@@ -9,15 +9,20 @@
 </head>
 <body>
     <header>
-        <p>Time left: <span id="time">60</span> Aliens caught: <span id="points">0</span></p>
+        <p>Time left: <span id="time"> 10</span> Aliens caught: <span id="points">0</span></p>
     </header>
     <section>
-        <canvas id="gamearea">
-            <button> </button>
-        </canvas>
+        <button type="button" onclick="playGame()" id="startGame"> Start Game!</button>
+        <!-- kilde for onclick tips: 
+            https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_button_test
+            https://www.w3schools.com/jsref/event_onclick.asp -->
+        <canvas id="gamearea"></canvas>
     </section>
-    <p><a href="https://www.flaticon.com/free-icons/alien" title="alien icons">Alien icon created by Smashicons</a>, 
-    <a href="https://www.flaticon.com/free-icons/spaceship" title="spaceship icons">Spaceship icons created by Freepik</a> - Flaticon</p>
+    <footer>
+        <p><a href="https://www.flaticon.com/free-icons/alien" title="alien icons">Alien icon created by Smashicons</a>, 
+        <a href="https://www.flaticon.com/free-icons/spaceship" title="spaceship icons">Spaceship icons created by Freepik</a> - Flaticon</p>
+    </footer>
+    <!-- lagt til referansene i en footer seksjon for ryddighetens skyld-->
     <aside id="history">
         <h2>Stats</h2>
         <ol id="pointsHistory"></ol>
@@ -36,7 +41,7 @@
         const ctx = canvas.getContext("2d");
 
         //Gjør klar spillinformasjon
-        let countdown = 20
+        let countdown = 10
         //oppgave 3 2): endret "let countdown" verdi til 60 for å øke spilletiden til 60 sekunder
         let iconsize = 64
         let gameOver = false
@@ -110,8 +115,9 @@
         //Funksjon som modifiserer spillerens posisjon på spillbrettet:
         function playerMovement(speedModifier) {
             //Flytt player i riktig retning
-            left ? player.x -= player.speed * (speedModifier) : null
-            //"left" hadde "??" bak seg, som ikke er valid kode. fjernet en "?" 
+            left ? player.x -= player.speed * speedModifier : null
+            /*"left" hadde "??" bak seg, som ikke er valid kode. fjernet en "?" 
+              også fjernet () rundt speedModifier, da det ikke var nødvendig*/
             right ? player.x += player.speed * speedModifier : null
             up ? player.y -= player.speed * speedModifier : null
             down ? player.y += player.speed * speedModifier : null
@@ -164,6 +170,10 @@
               width=bredden på canvas/2 for å midstille teksten i bredde
               height=høyden på canvas/2 for å midstille teksten i høyde
               Dette, kombinert med textAlign = "center", flytter teksten til midt i spilleområdet */
+            gameOver ? document.getElementById("startGame").style.display = "initial" : null
+            /* oppgave 4 4): lagt til en if else funksjon som sjekker om gameOver er sant.
+               hvis gameOver er sant, så settes button id= "startGame" tilbake til sin initielle state (inline som standard)
+               kilde: https://www.w3schools.com/jsref/prop_style_display.asp*/
             document.getElementById("time").innerHTML = countdown
             document.getElementById("points").innerHTML = aliensCaught
             //kilde for forklaring av "ctx." funksjon: https://dev.to/thehomelessdev/how-to-add-a-custom-font-to-an-html-canvas-1m3g
@@ -183,17 +193,26 @@
         //Funksjon for start/restart spill
         function playGame() {
             //Startverdier
-            let countdown = 10
             let gameOver = false
-            playerLoaded = false
-            enemyLoaded = false
+            let countdown = 10
+            //endret countdown til 60 sekunder
+            document.getElementById("time").innerHTML = countdown
+            
+            playerLoaded = true
+            enemyLoaded = true
+            //endret "playerLoaded" og "enemyLoaded" til true for å spawne elementene så snart function playGame() blir aktivert
             //Tegne spill-elementer ved oppstart
+            document.getElementById("startGame").style.display = "none";
+            /*oppgave 4 4): lagt inn funksjon for å skjule button id="startGame" så snart function playGame() blir aktivert (som er ved trykk av button)
+              Kilde: https://www.w3schools.com/jsref/prop_style_display.asp*/
+            let aliensCaught = 0
+            //endrer let aliensCaught til 0 ved start av nytt spill
             drawCharacters()
             renderGame()
         }
         
         //Kjør hele spillet med playGame-funksjonen
-        playGame()
+        //Oppgave 4 1): På denne linjen var "playGame()", nå fjernet.
     </script>
 
 </body>
