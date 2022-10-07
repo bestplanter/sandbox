@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <p>Time left: <span id="time"> 10</span> Aliens caught: <span id="points">0</span></p>
+        <p>Time left: <span id="time">60</span> Aliens caught: <span id="points">0</span></p>
     </header>
     <section>
         <button type="button" onclick="playGame()" id="startGame"> Start Game!</button>
@@ -78,7 +78,21 @@
         /************************************************************** 
          OPPGAVE 2 - KOMMENTAR 1
          Forklar hva de fire linjene i funksjonen drawCharacters() gjør
-         - din kommentar her -
+         - linje 1: Plasserer player på x akse posisjonen som tilsvarer bredden av canvas / 2
+
+           linje 2: Plasserer player på y akse posisjonen som tilsvarer høyden av canvas / 2 
+
+           linje 3: Plasserer enemy på x akse posisjon innenfor en halv del av iconsize (64px/2=32) 
+                    deretter returnerer en pseudo-tilfeldig verdi som er større enn eller lik 0, og mindre enn 1 (aka math.random)
+                    ganger dette med canvas bredde (960) minus iconsize (64)
+                    ligning/alternativ forklaring: (64/2) + (random mellom 0-1) * (960 - 64) = enemy.x
+
+           linje 4: Plasserer enemy på y akse posisjon innenfor en halv del av iconsize (64px/2=32) 
+                    deretter returnerer en pseudo-tilfeldig verdi som er større enn eller lik 0, og mindre enn 1 (aka math.random)
+                    ganger dette med canvas høyde (640) minus iconsize (64)
+                    ligning/alternativ forklaring: (64/2) + (random mellom 0-1) * (640 - 64) = enemy.y
+                    
+                    (math.random kilde: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)-
         ***************************************************************/
 
         //Sjekk om spilleren har trykket ned (og holder) en tast:
@@ -144,7 +158,7 @@
                 playerLoaded = false
                 enemyLoaded = false
             } 
-        }
+        } 
         /************************************************************** 
          OPPGAVE 2 - KOMMENTAR 3
          Forklar hva linjene i funksjonen countDownFunction() gjør
@@ -193,11 +207,9 @@
         //Funksjon for start/restart spill
         function playGame() {
             //Startverdier
-            let gameOver = false
-            let countdown = 10
+            let countdown = 15
             //endret countdown til 60 sekunder
-            document.getElementById("time").innerHTML = countdown
-            
+            let gameOver = false
             playerLoaded = true
             enemyLoaded = true
             //endret "playerLoaded" og "enemyLoaded" til true for å spawne elementene så snart function playGame() blir aktivert
