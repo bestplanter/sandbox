@@ -53,9 +53,18 @@
         let aliensCaught = 0;
         //endret startverdien av "aliensCaught" (som er hvor mange aliens som er fanget) til 0, slik at man får en nøyaktig telling
         let history = []
-        history.length < 1 ? document.getElementById("history").style.display = "none" : document.getElementById("history").style.display = "block"
-
+        function displayStats () {
+            document.getElementById("history").style.display = history.length < 1 ? "none" : "block"
+        }
+        displayStats ()
+        /*lagt til framvisning av "stats" block som en function, for å kutte ned på videre kode.
+          kortet ned koden for ryddihgetens skyld. Med ny if else funksjon: if mindre enn 1 "none" else "block"
+          kjører displayStats initielt med koden første gang man launcher, deretter vil displayStats kun bli brukt ved gameover = false*/
         //Gjør klar bakgrunnsbilde for spiller
+        function displayHistory () {
+            document.getElementById("pointsHistory").innerHTML = history.map( element => "<li> "+element+" </li>" )
+        }
+        //KOMMENTER (dytt element inn i en li)
         let playerLoaded = false;
         const playerImage = new Image();
         playerImage.onload = () => { playerLoaded = true; }
@@ -155,10 +164,18 @@
             countdown--
             if(countdown <= 0) {
                 clearInterval(countdownFunction)
+                if(gameOver === false) { 
+                    history.push(aliensCaught)
+                    /* lagt til linje for å dytte inn en verdi i history hver gang en enemy blir fanget
+                   kilde push: https://www.w3schools.com/JSREF/jsref_push.asp*/
+                    displayStats ()
+                    displayHistory ()
+                    //lagt til if funksjon for å sjekke hver gang spillet startes, om history og stats-boks skal vises fram. 
+                }
                 gameOver = true
                 countdown = 0
                 playerLoaded = false
-                enemyLoaded = false
+                enemyLoaded = false 
             } 
         } 
         /************************************************************** 
@@ -211,10 +228,10 @@
         function playGame() {
             //Startverdier
             countdown = 60
-            //endret countdown til 60 sekunder
-            //fjernet let, da det ikke er hensiktsmessig å referere til
+            /*endret countdown til 60 sekunder
+              fjernet let, da det forsøker å lage en ny let hver gang koden kjører, istedenfor å referere til countdown */
             gameOver = false
-            //fjernet let, da det ikke er hensiktsmessig å referere til
+            //fjernet let, da det forsøker å lage en ny let hver gang koden kjører, istedenfor å referere til gameOver
             playerLoaded = true
             enemyLoaded = true
             //endret "playerLoaded" og "enemyLoaded" til true for å spawne elementene så snart function playGame() blir aktivert
@@ -223,14 +240,14 @@
             /*oppgave 4 4): lagt inn funksjon for å skjule button id="startGame" så snart function playGame() blir aktivert (som er ved trykk av button)
               Kilde: https://www.w3schools.com/jsref/prop_style_display.asp*/
             aliensCaught = 0
-            //endrer aliensCaught til 0 ved start av nytt spill
-            //fjernet let, da det ikke er hensiktsmessig å referere til
+            /*endrer aliensCaught til 0 ved start av nytt spill
+              fjernet let, da det forsøker å lage en ny let hver gang koden kjører, istedenfor å referere til aliensCaught */
             drawCharacters()
             renderGame()
         }
         
         //Kjør hele spillet med playGame-funksjonen
-        //Oppgave 4 1): På denne linjen var "playGame()", nå fjernet.
+        //Oppgave 4 1): På denne linjen eksisterte "playGame()". nå fjernet.
     </script>
 
 </body>
