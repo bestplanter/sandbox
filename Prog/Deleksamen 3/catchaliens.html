@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <p>Time left: <span id="time">60</span> Aliens caught: <span id="points">0</span></p>
+        <p>Time left: <span id="time">10</span> Aliens caught: <span id="points">0</span></p>
     </header>
     <section>
         <button type="button" onclick="playGame()" id="startGame"> Start Game!</button>
@@ -123,7 +123,9 @@
          OPPGAVE 2 - KOMMENTAR 2
          Forklar hvorfor vi trenger å sjekke både når en knapp er trykket ned,
          og når den er sluppet opp igjen. 
-         - din kommentar her -
+         - fordi ved input av f.eks (event.key === "ArrowDown") vil { down = true } aktiveres,
+           down vil fortsette å være true, inntil noe annet i koden tilsier at down = false.
+           Dvs. uten å sjekke om knappen blir sluppet opp, vil spilleren fortsette å bevege seg i en rettning selv etter at knappen er sluppet opp. -
         ***************************************************************/
         
         //Funksjon som modifiserer spillerens posisjon på spillbrettet:
@@ -221,6 +223,7 @@
             //endrer let aliensCaught til 0 ved start av nytt spill
             drawCharacters()
             renderGame()
+            console.log(playGame)
         }
         
         //Kjør hele spillet med playGame-funksjonen
