@@ -37,8 +37,11 @@ header span {
 }
 
 section {
-    width: 704px; /* 32px * 22ruter */
-    height: 512px; /* 32px * 16 ruter */
+    width: 960px; /* 32px * 30ruter */
+    height: 640px; /* 32px * 20 ruter */
+    /* endret "section" til å reflektere størrelsen av spilleområdet. (940x640)
+       Dette fikset samtidig en feil med at "GAME OVER!" teksten ikke reflekterte spilleområdet.
+       Dette fikset også en feil med at spilleområdet ble feilplassert, fordi section var ikke samme størrelse.*/
 }
 
 aside {
