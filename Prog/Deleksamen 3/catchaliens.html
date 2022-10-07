@@ -72,10 +72,12 @@
         let up = false
         let down = false
         //Set retningsvariabel til true hvis riktig piltast er trykket:
-        function buttonPressed(event) 
+        function buttonPressed(event) {
+        //lagt til "{" i linjen over, fordi det manglet
             if(event.key === "ArrowLeft") { left = true } 
             if(event.key === "ArrowRight") { right = true } 
-            if(event.key === "ArrowUp") { up = true }.
+            if(event.key === "ArrowUp") { up = true }
+            //fjernet en "." fra enden av linjen over, som forårsaket en følgefeil
             if(event.key === "ArrowDown") { down = true } 
         }
         //Sett retningsvariabel til false hvis piltasten blir sluppet opp:
@@ -143,7 +145,8 @@
         }
 
         //Funksjon som kjører spillet
-        functio renderGame() {
+        function renderGame() {
+        //function var feilskrevet, endret "functio" til "function"
             playerMovement(1)
             drawGameElements()
             requestAnimationFrame(renderGame)
