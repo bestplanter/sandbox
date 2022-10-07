@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <p>Time left: <span id="time">10</span> Aliens caught: <span id="points">0</span></p>
+        <p>Time left: <span id="time">60</span> Aliens caught: <span id="points">0</span></p>
     </header>
     <section>
         <button type="button" onclick="playGame()" id="startGame"> Start Game!</button>
@@ -41,7 +41,7 @@
         const ctx = canvas.getContext("2d");
 
         //Gjør klar spillinformasjon
-        let countdown = 10
+        let countdown = 60
         //oppgave 3 2): endret "let countdown" verdi til 60 for å øke spilletiden til 60 sekunder
         let iconsize = 64
         let gameOver = false
@@ -186,9 +186,10 @@
               width=bredden på canvas/2 for å midstille teksten i bredde
               height=høyden på canvas/2 for å midstille teksten i høyde
               Dette, kombinert med textAlign = "center", flytter teksten til midt i spilleområdet */
-            gameOver ? document.getElementById("startGame").style.display = "initial" : null
+            gameOver ? document.getElementById("startGame").style.display = "initial" : "hidden"
             /* oppgave 4 4): lagt til en if else funksjon som sjekker om gameOver er sant.
                hvis gameOver er sant, så settes button id= "startGame" tilbake til sin initielle state (inline som standard)
+               hvis ikke forblir den "hidden"
                kilde: https://www.w3schools.com/jsref/prop_style_display.asp*/
             document.getElementById("time").innerHTML = countdown
             document.getElementById("points").innerHTML = aliensCaught
@@ -209,9 +210,11 @@
         //Funksjon for start/restart spill
         function playGame() {
             //Startverdier
-            let countdown = 15
+            countdown = 60
             //endret countdown til 60 sekunder
-            let gameOver = false
+            //fjernet let, da det ikke er hensiktsmessig å referere til
+            gameOver = false
+            //fjernet let, da det ikke er hensiktsmessig å referere til
             playerLoaded = true
             enemyLoaded = true
             //endret "playerLoaded" og "enemyLoaded" til true for å spawne elementene så snart function playGame() blir aktivert
@@ -219,11 +222,11 @@
             document.getElementById("startGame").style.display = "none";
             /*oppgave 4 4): lagt inn funksjon for å skjule button id="startGame" så snart function playGame() blir aktivert (som er ved trykk av button)
               Kilde: https://www.w3schools.com/jsref/prop_style_display.asp*/
-            let aliensCaught = 0
-            //endrer let aliensCaught til 0 ved start av nytt spill
+            aliensCaught = 0
+            //endrer aliensCaught til 0 ved start av nytt spill
+            //fjernet let, da det ikke er hensiktsmessig å referere til
             drawCharacters()
             renderGame()
-            console.log(playGame)
         }
         
         //Kjør hele spillet med playGame-funksjonen
