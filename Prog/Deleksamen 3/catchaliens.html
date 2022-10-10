@@ -13,9 +13,12 @@
     </header>
     <section>
         <button type="button" onclick="playGame()" id="startGame"> Start Game!</button>
-        <!-- kilde for onclick tips: 
+        <!--Oppgave 4 2): Lagt til en knapp under seksjonen hvor gamearea også eksisterer. Dette fordi kodelinjen ikke behøver å være en del av canvas.
+            Kodelinjen definerer en button type "button". Ved click av button "onclick", kjøres function "playGame()"
+            kilde for onclick tips: 
             https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_button_test
             https://www.w3schools.com/jsref/event_onclick.asp -->
+
         <canvas id="gamearea"></canvas>
     </section>
     <footer>
@@ -26,14 +29,14 @@
     <aside id="history">
         <h2>Stats</h2>
         <ol id="pointsHistory"></ol>
-        <!-- id="points" er allerede brukt som span id i header. endret ol id fra "points" til "pointsHistory". 
+        <!--Oppgave 1: id="points" er allerede brukt som span id i header. endret ol id fra "points" til "pointsHistory". 
             Valgte å endre denne id'en fordi header spand id="points" er allerede referert til lenger ned i koden
             Feil funnet vedd bruk av https://validator.w3.org/nu/#textarea-->
     </aside>
     <script>
         //Sett opp Canvas:
         const canvas = document.getElementById("gamearea")
-        //getElementBYId skal være uten stor "Y", endret til "getElementById"
+        //Oppgave 1: getElementBYId skal være uten stor "Y", endret til "getElementById"
         canvas.width = 960; //64px ikoner * 15 ruter (960/64)
         canvas.height = 640; //64px ikoner * 10 ruter (640/64)
         /*oppgave 3 3): endret spillebrettstørrelse til 960 (bredde) x 640 pixler.
@@ -52,7 +55,7 @@
         
         const enemy = { }
         let aliensCaught = 0;
-        //endret startverdien av "aliensCaught" (som er hvor mange aliens som er fanget) til 0, slik at man får en nøyaktig telling
+        //Oppgave 1: endret startverdien av "aliensCaught" (som er hvor mange aliens som er fanget) til 0, slik at man får en nøyaktig telling
 
         let history = []
 
@@ -127,7 +130,7 @@
         let down = false
         //Set retningsvariabel til true hvis riktig piltast er trykket:
         function buttonPressed(event) {
-        //lagt til "{" i linjen over, fordi det manglet
+        //Oppgave 1: lagt til "{" ved slutt av linjen over, fordi det manglet
             if(event.key === "ArrowLeft") { left = true } 
             if(event.key === "ArrowRight") { right = true } 
             if(event.key === "ArrowUp") { up = true }
@@ -154,7 +157,7 @@
         function playerMovement(speedModifier) {
             //Flytt player i riktig retning
             left ? player.x -= player.speed * speedModifier : null
-            /*"left" hadde "??" bak seg, som ikke er valid kode. fjernet en "?" 
+            /*Oppgave 1: "left" hadde "??" bak seg, som ikke er valid kode. fjernet en "?" 
               også fjernet () rundt speedModifier, da det ikke var nødvendig*/
             right ? player.x += player.speed * speedModifier : null
             up ? player.y -= player.speed * speedModifier : null
@@ -179,11 +182,11 @@
                 clearInterval(countdownFunction)
                 if(gameOver === false) { 
                     history.push(aliensCaught)
-                    /* lagt til linje for å dytte inn en verdi i history hver gang en enemy blir fanget
-                   kilde push: https://www.w3schools.com/JSREF/jsref_push.asp*/
+                    /*Oppgave 5: lagt til linje for å dytte inn en verdi i history hver gang en enemy blir fanget (kun når spillet spilles)
+                    kilde push: https://www.w3schools.com/JSREF/jsref_push.asp*/
                     displayStats ()
                     displayHistory ()
-                    //lagt til if funksjon for å sjekke hver gang spillet startes, om history og stats-boks skal vises fram. 
+                    //Oppgave 5: lagt til if funksjon for å sjekke hver gang spillet startes, om history og stats-boks skal vises fram. 
                 }
                 gameOver = true
                 countdown = 0
@@ -228,7 +231,7 @@
 
         //Funksjon som kjører spillet
         function renderGame() {
-        //function var feilskrevet, endret "functio" til "function"
+        //Oppgave 1: function var feilskrevet, endret "functio" til "function"
             playerMovement(1)
             drawGameElements()
             requestAnimationFrame(renderGame)
@@ -241,10 +244,10 @@
         function playGame() {
             //Startverdier
             countdown = 60
-            /*endret countdown til 60 sekunder
-              fjernet let, da det forsøker å lage en ny let hver gang koden kjører, istedenfor å referere til countdown */
+            /*Oppgave 3 2): endret countdown til 60 sekunder
+              Oppgave 1: fjernet let, da det forsøker å lage en ny let hver gang koden kjører, istedenfor å referere til countdown */
             gameOver = false
-            //fjernet let, da det forsøker å lage en ny let hver gang koden kjører, istedenfor å referere til gameOver
+            //Oppgave 1: fjernet let, da det forsøker å lage en ny let hver gang koden kjører, istedenfor å referere til gameOver
             playerLoaded = true
             enemyLoaded = true
             //endret "playerLoaded" og "enemyLoaded" til true for å spawne elementene så snart function playGame() blir aktivert
@@ -254,7 +257,7 @@
               Kilde: https://www.w3schools.com/jsref/prop_style_display.asp*/
             aliensCaught = 0
             /*endrer aliensCaught til 0 ved start av nytt spill
-              fjernet let, da det forsøker å lage en ny let hver gang koden kjører, istedenfor å referere til aliensCaught */
+              Oppgave 1: fjernet let, da det forsøker å lage en ny let hver gang koden kjører, istedenfor å referere til aliensCaught */
             drawCharacters()
             renderGame()
         }
