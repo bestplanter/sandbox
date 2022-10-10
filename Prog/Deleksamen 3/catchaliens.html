@@ -73,9 +73,10 @@
         /* Oppgave 5: For her å vise fram tellingen jeg gjør med "pointsHistory", gjør jeg følgende: 
            Lager en function for å vise fram tellingen (kjøres ved game over)
            fra dokument, henter element by id "pointsHistory". Drar så ut verdiene av dette elementet med .innerHTML
-           kjører så en map løkke, hvor i jeg dytter (=>) element (hentet fra "pointsHistory") inn i ett <li> element.
+           kjører så en map løkke, hvor i jeg dytter (Return =>) element (hentet fra "pointsHistory") inn i ett <li> element.
            
            kilder:
+           https://www.freecodecamp.org/news/javascript-map-how-to-use-the-js-map-function-array-method/
            https://www.w3schools.com/js/js_arrow_function.asp
            https://code.tutsplus.com/tutorials/javascript-map-vs-foreach-when-to-use-each-one--cms-38365
            https://lms.webtricks.blog/kurs/innforing-i-programmering/lokker/foreach-lokker#h58017fcfdb68 */
@@ -181,12 +182,13 @@
             if(countdown <= 0) {
                 clearInterval(countdownFunction)
                 if(gameOver === false) { 
+                //Oppgave 5: lagt til if funksjon for å sjekke hver gang spillet startes, om history og stats-boks skal vises fram. 
                     history.push(aliensCaught)
                     /*Oppgave 5: lagt til linje for å dytte inn en verdi i history hver gang en enemy blir fanget (kun når spillet spilles)
                     kilde push: https://www.w3schools.com/JSREF/jsref_push.asp*/
                     displayStats ()
                     displayHistory ()
-                    //Oppgave 5: lagt til if funksjon for å sjekke hver gang spillet startes, om history og stats-boks skal vises fram. 
+                    //Oppgave 5: 
                 }
                 gameOver = true
                 countdown = 0
@@ -197,7 +199,15 @@
         /************************************************************** 
          OPPGAVE 2 - KOMMENTAR 3
          Forklar hva linjene i funksjonen countDownFunction() gjør
-         - din kommentar her -
+         - 180 definerer en funksjon (function) kalt countdownFunction(), 
+           Dette gjør man for å slippe å potensielt måtte kopiere inn lang kode senere i koden.
+           181 er start av funksjonen, og referer til "countdown".
+           182 er en if else funksjon, som spør om countdown er lik eller mindre enn 0, hvis sant, igangsetter videre kode.
+           183 klarer opp intervallen (clearinterval) i countdownFunction, dette for å få telleren til å stoppe.
+           Linje 184 - 191 er egen kode, og kommentert deretter.
+           193 setter gameOver til true, dette fordi spillet skal avsluttes når countdown treffer 0.
+           194 setter countdown til 0
+         - 195 og 196 despawner player og element (setter let player/enemyLoaded som false)
         ***************************************************************/
 
         //Kjør funksjonen for nedtelling hver sekund (1000. milisekund)

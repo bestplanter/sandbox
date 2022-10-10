@@ -39,7 +39,7 @@ header span {
 section {
     width: 960px; /* 64px * 15 ruter */
     height: 640px; /* 64px * 10 ruter */
-    /* endret "section" til å reflektere størrelsen av spilleområdet. (940x640)
+    /* Oppgave 3 3): endret "section" til å reflektere størrelsen av spilleområdet. (940x640)
        Dette fikset samtidig en feil med at "GAME OVER!" teksten ikke reflekterte spilleområdet.
        Dette fikset også en feil med at spilleområdet ble feilplassert, fordi section var ikke samme størrelse.*/
 }
@@ -71,4 +71,5 @@ button {
     background-color: #4CAF50;
     color: white;
   }
-/* Kilde style og hover av button: https://www.w3schools.com/tags/tag_button.asp*/
+/*  Lagt til styling og hover funkjson for button. Kun for morro/looks.
+    Kilde style og hover av button: https://www.w3schools.com/tags/tag_button.asp*/
