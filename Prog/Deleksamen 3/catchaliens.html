@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catch the aliens</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="catchaliens.css" rel="stylesheet" media="all" />
 </head>
 <body>
@@ -49,22 +49,35 @@
         /*oppgave 3 4): doblet farten til "speed: 4".
           250 er ikke en hensiktsmessig fart, da spillerikonet forsvinner ved første tastetrykk på denne hastigheten.
           Dobling av fart til 4 øker allerede vanskelighetsgraden, men ikke til et punkt hvor spillbarheten blir såret.*/
+        
         const enemy = { }
         let aliensCaught = 0;
         //endret startverdien av "aliensCaught" (som er hvor mange aliens som er fanget) til 0, slik at man får en nøyaktig telling
+
         let history = []
+
         function displayStats () {
             document.getElementById("history").style.display = history.length < 1 ? "none" : "block"
         }
         displayStats ()
-        /*lagt til framvisning av "stats" block som en function, for å kutte ned på videre kode.
+        /*Oppgave 5: lagt til framvisning av "stats" block som en function, for å kutte ned på videre kode.
           kortet ned koden for ryddihgetens skyld. Med ny if else funksjon: if mindre enn 1 "none" else "block"
           kjører displayStats initielt med koden første gang man launcher, deretter vil displayStats kun bli brukt ved gameover = false*/
-        //Gjør klar bakgrunnsbilde for spiller
+        
         function displayHistory () {
             document.getElementById("pointsHistory").innerHTML = history.map( element => "<li> "+element+" </li>" )
         }
-        //KOMMENTER (dytt element inn i en li)
+        /* Oppgave 5: For her å vise fram tellingen jeg gjør med "pointsHistory", gjør jeg følgende: 
+           Lager en function for å vise fram tellingen (kjøres ved game over)
+           fra dokument, henter element by id "pointsHistory". Drar så ut verdiene av dette elementet med .innerHTML
+           kjører så en map løkke, hvor i jeg dytter (=>) element (hentet fra "pointsHistory") inn i ett <li> element.
+           
+           kilder:
+           https://www.w3schools.com/js/js_arrow_function.asp
+           https://code.tutsplus.com/tutorials/javascript-map-vs-foreach-when-to-use-each-one--cms-38365
+           https://lms.webtricks.blog/kurs/innforing-i-programmering/lokker/foreach-lokker#h58017fcfdb68 */
+
+        //Gjør klar bakgrunnsbilde for spiller
         let playerLoaded = false;
         const playerImage = new Image();
         playerImage.onload = () => { playerLoaded = true; }
